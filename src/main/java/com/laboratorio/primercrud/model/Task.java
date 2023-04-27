@@ -1,17 +1,19 @@
 package com.laboratorio.primercrud.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import java.security.PrivateKey;
 
 @Entity
+@Table(name = "task")   //  <---  This is the name of the table in the database
 
 public class Task {
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
     private String title;
     private String description;
