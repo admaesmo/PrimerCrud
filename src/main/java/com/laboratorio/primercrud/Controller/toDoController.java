@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-//@RequestMapping("/api")
+@RequestMapping("/api")
 
 
     public class toDoController {
-     @GetMapping(value = "/")
+     @GetMapping()
         public String index() {
       //   System.out.println("Hola mundo Api Rest");
          return "Greetings from Spring Boot!";
@@ -17,3 +17,4 @@ import org.springframework.web.bind.annotation.RestController;
     }
 
 
+s
