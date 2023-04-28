@@ -32,4 +32,18 @@ import java.util.List;
          toDoRepository.save(task);
         return "saved task";
      }
+
+     @PutMapping(value = "/updatetask{id}")
+     public String updateTask(@PathVariable Long id, @RequestBody Task task) {
+            Task  updateTask = toDoRepository.findById(id).orElse(null);
+            updateTask.setTitle(task.getTitle());
+            updateTask.setDescription(task.getDescription());
+            toDoRepository.save(updateTask);
+            return "updated task";
+        }
+
+
+
+
+
     }
