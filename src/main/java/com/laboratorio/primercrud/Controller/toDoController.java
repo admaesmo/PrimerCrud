@@ -33,14 +33,18 @@ import java.util.List;
         return "saved task";
      }
 
-     @PutMapping(value = "/updatetask{id}")
-     public String updateTask(@PathVariable Long id, @RequestBody Task task) {
-            Task  updateTask = toDoRepository.findById(id).orElse(null);
-            updateTask.setTitle(task.getTitle());
-            updateTask.setDescription(task.getDescription());
-            toDoRepository.save(updateTask);
+     @PutMapping(value= "/updated/{id}")
+     public String updatedTask(@PathVariable Long id, @RequestBody Task task) {
+            Task  updatedTask = toDoRepository.findById(id).get();
+            updatedTask.setTitle(task.getTitle());
+            updatedTask.setDescription(task.getDescription());
+            toDoRepository.save(updatedTask);
+
             return "updated task";
         }
+
+        @DeleteMapping(value = "/delete/{id}")
+
 
 
 
